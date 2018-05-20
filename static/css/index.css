@@ -1,0 +1,106 @@
+.strok-market-info{
+	height: 200px;
+	background: white;
+}
+.single-market-price{
+
+}
+.single-market-price h4{
+	font-weight: bold;
+}
+#id1{
+	color: gray;
+	margin-top: -13px;
+}
+.currency-info{
+
+}
+.single-price{
+
+}
+#id2{
+	font-size: 25px;
+	color: #009933;
+	font-weight: normal;
+}
+#id3{
+	margin-top: -12px;
+}
+.single-price h1{
+	font-weight: bold;
+	font-size: 40px;
+}
+
+.option-list-container{
+
+}
+
+.list-item{
+	height: 41px;
+	border-bottom: 3px solid #E0E4E9;
+}
+
+.list-item ul{list-style: none;margin-left: -55px;}
+.list-item ul li{float: left;}
+.list-item ul li a{text-decoration: none;padding: 20px;color: blue;}
+.list-item ul li a:hover{background: #CCE5FF;}
+
+.div-for-list1{
+	height: 300px;
+	display: none;
+	margin-left: -15px;
+}
+.sub-div1{
+	height: 100%;
+	background: #5206B4;
+	color: white;
+	float: left;
+
+}
+.sub-div2{
+	height: 100%;
+	background: #4862A3;
+	color: white;
+	float: left;
+}
+
+
+
+.div-for-list3{
+	height: 300px;
+	background: #0d64a2;
+	color: white;
+	display: none;
+}
+.div-for-list4{
+	height: 300px;
+	background: #0d64a2;
+	color: white;
+	display: none;
+}
+
+.div-for-list5{
+	height: 300px;
+	background: #0d64a2;
+	color: white;
+	display: none;
+}
+
+.div-for-list6{
+	height: 300px;
+	background:#0d64a2;
+	color: white;
+	display: none;
+}
+.div-for-list7{
+	height: 300px;
+	background: #0d64a2;
+	color: white;
+	display: none;
+}
+.div-for-list8{
+	height: 300px;
+	background: #0d64a2;
+	color: white;
+	display: none;
+}

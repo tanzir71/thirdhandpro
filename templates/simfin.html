@@ -1,0 +1,768 @@
+{% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+
+{% block content %}
+
+
+    <div class="row">
+         <div class="fa_div col-lg-8">
+             {% for i in company %}
+             <h3>Company: {{i.companyName}}.</h3>
+             {% endfor %}
+         </div>
+    </div>
+
+      <div class="row">
+         <div class="fisrt_div col-lg-8">
+          <div class="sub_div_for_list col-lg-offset-1 col-lg-5">
+          <div class="head">
+                  <ul>Key Figures </ul>
+              </div>
+              <table  class="table table-sm">
+              <tr>
+
+      <th scope="col">Last Closing Price</th>
+  {% for i in singledata %}
+
+          <td>{{ i.close }}</td>
+
+
+      {% endfor %}
+
+
+  </tr>
+  <tr>
+
+      <th scope="col">Market Capitalisation</th>
+  {% for i in indicator %}
+         {% if i.MarketCapitalisation %}
+          <td>{{ i.MarketCapitalisation }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+
+  </tr>
+  <tr>
+
+      <th scope="col">Enterprise Value</th>
+       {% for i in indicator %}
+         {% if i.EnterprizeValue %}
+          <td>{{ i.EnterprizeValue }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+
+  </tr>
+ <tr>
+
+
+  </tr>
+  <tr>
+
+      <th scope="col">Common Shares Outstanding</th>
+       {% for i in indicator %}
+         {% if i.CommonSharesOutstanding %}
+          <td>{{ i.CommonSharesOutstanding }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+
+
+  </tr>
+ <tr>
+
+      <th scope="col">Average Basic Shares Outstanding</th>
+
+      {% for i in indicator %}
+         {% if i.AvgBasicSharesOutstanding %}
+          <td>{{ i.AvgBasicSharesOutstanding }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+
+  </tr>
+ <tr>
+
+      <th scope="col">Average Diluted Shares Outstanding</th>
+       {% for i in indicator %}
+         {% if i.AvgDilutedSharesOutstanding %}
+          <td>{{ i.AvgDilutedSharesOutstanding }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+  </tr>
+ <tr>
+
+</table>
+
+          </div>
+         </div>
+      </div>
+      <div class="row">
+        <div class="another_div_for_list col-lg-8">
+             <div class="head">
+                  <ul>Key Financials & Ratios  </ul>
+              </div>
+          <div class="another_div1 col-lg-6">
+
+<table  class="table table-sm">
+
+<tr><span style="color: blue">Profit & Loss</span></tr>
+
+  <tr>
+
+      <th scope="col">Revenues</th>
+      {% for i in indicator %}
+         {% if i.revenues %}
+          <td>{{ i.revenues }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+
+
+  </tr>
+ <tr>
+
+
+  </tr>
+ <tr>
+
+      <th scope="col">Operating Income / EV</th>
+       {% for i in indicator %}
+         {% if i.OperatingIncomeEV %}
+          <td>{{ i.OperatingIncomeEV }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+
+
+  </tr>
+ <tr>
+
+      <th scope="col">EBITDA</th>
+
+       {% for i in indicator %}
+         {% if i.EBITDA %}
+          <td>{{ i.EBITDA }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+
+  </tr>
+ <tr>
+      <th scope="col">Net Profit</th>
+       {% for i in indicator %}
+         {% if i.NetProfit %}
+          <td>{{ i.NetProfit }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+  </tr>
+</table>
+
+
+          </div>
+             <div class="another_div2 col-lg-6">
+                 <table  class="table table-sm">
+                   <tr><span style="color: blue">Profitability Ratios</span></tr>
+
+  <tr>
+
+      <th scope="col">Gross Margin</th>
+        {% for i in indicator %}
+         {% if i.GrossMargin %}
+          <td>{{ i.GrossMargin }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+  </tr>
+ <tr>
+
+      <th scope="col">Operating Margin</th>
+         {% for i in indicator %}
+         {% if i.OperatingMargin %}
+          <td>{{ i.OperatingMargin }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+
+
+  </tr>
+ <tr>
+
+      <th scope="col">Net Profit Margin</th>
+        {% for i in indicator %}
+         {% if i.NetProfitMargin %}
+          <td>{{ i.NetProfitMargin }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+
+
+  </tr>
+ <tr>
+
+      <th scope="col">Return on Equity</th>
+        {% for i in indicator %}
+         {% if i.ReturnonEquity %}
+          <td>{{ i.ReturnonEquity }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+
+  </tr>
+
+</table>
+          </div>
+           <div class="another_div1 col-lg-6">
+             <table  class="table table-sm">
+  <tr><span style="color: blue">Balance Sheet</span></tr>
+  <tr>
+
+      <th scope="col">Cash and Cash Equivalents</th>
+      {% for i in indicator %}
+         {% if i.CashAndCashEquivalents %}
+          <td>{{ i.CashAndCashEquivalents }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+
+
+  </tr>
+ <tr>
+
+      <th scope="col">Receivables</th>
+      {% for i in indicator %}
+         {% if i.Receivables %}
+          <td>{{ i.Receivables }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+
+
+  </tr>
+ <tr>
+
+      <th scope="col">Current Assets</th>
+       {% for i in indicator %}
+         {% if i.CurrentAssets %}
+          <td>{{ i.CurrentAssets }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+
+
+  </tr>
+ <tr>
+
+      <th scope="col">Net PP&E</th>
+       {% for i in indicator %}
+         {% if i.NetPPE %}
+          <td>{{ i.NetPPE }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+  </tr>
+ <tr>
+      <th scope="col">Total Assets</th>
+       {% for i in indicator %}
+         {% if i.TotalAssets %}
+          <td>{{ i.TotalAssets }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+  </tr>
+             <tr>
+      <th scope="col">Accounts Payable</th>
+
+        {% for i in indicator %}
+         {% if i.AccountsPayable %}
+          <td>{{ i.AccountsPayable }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+  </tr>
+             <tr>
+      <th scope="col">Current Debt</th>
+
+             <td> N/A</td>
+
+  </tr>
+             <tr>
+      <th scope="col">Current Liabilities</th>
+       {% for i in indicator %}
+         {% if i.CurrentLiabilities %}
+          <td>{{ i.CurrentLiabilities }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+  </tr>
+             <tr>
+      <th scope="col">Long-Term Debt</th>
+             {% for i in indicator %}
+         {% if i.LongTermDebt %}
+          <td>{{ i.LongTermDebt }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+  </tr>
+             <tr>
+      <th scope="col">Total Liabilities</th>
+          {% for i in indicator %}
+         {% if i.TotalLiabilities %}
+          <td>{{ i.TotalLiabilities }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+  </tr>
+             <tr>
+      <th >Total Equity</th>
+              {% for i in indicator %}
+         {% if i.TotalEquity %}
+          <td>{{ i.TotalEquity }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+  </tr>
+</table>
+          </div>
+             <div class="another_div2 col-lg-6">
+                            <table  class="table table-sm">
+
+            <tr><span style="color: blue">Per Share Figures</span></tr>
+
+
+             <tr>
+      <th scope="col">Basic EPS</th>
+
+             <td> N/A</td>
+
+  </tr>
+             <tr>
+      <th scope="col">Diluted EPS</th>
+
+             <td> N/A</td>
+
+  </tr>
+             <tr>
+      <th scope="col">Sales per Share</th>
+
+             <td> N/A</td>
+
+  </tr>
+             <tr>
+      <th scope="col">Book Value per Share</th>
+
+             <td> N/A</td>
+
+  </tr>
+             <tr>
+      <th scope="col">FCF per Share</th>
+
+             <td> N/A</td>
+
+  </tr>
+             <tr>
+      <th >Dividends per Share</th>
+
+             <td> N/A</td>
+
+  </tr>
+</table>
+
+          </div>
+              <div class="another_div2 col-lg-6">
+                                    <table  class="table table-sm">
+          <tr><span style="color: blue">Price Multiples</span></tr>
+
+
+             <tr>
+      <th scope="col">Price to Earnings Ratio</th>
+
+             <td> N/A</td>
+  </tr>
+             <tr>
+      <th scope="col">Price to Sales Ratio</th>
+
+             <td> N/A</td>
+
+  </tr>
+             <tr>
+      <th scope="col">SPrice to Book Value</th>
+
+             <td> N/A</td>
+
+  </tr>
+             <tr>
+      <th >Price to Free Cash Flow</th>
+
+             <td> N/A</td>
+  </tr>
+</table>
+          </div>
+             <div class="another_div1 col-lg-6">
+                                      <table  class="table table-sm">
+    <tr><span style="color: blue">Cash Flow</span></tr>
+    <tr>
+      <th scope="col">Depreciation & Amortisation</th>
+     {% for i in indicator %}
+         {% if i.DepreciationAmortisation %}
+          <td>{{ i.DepreciationAmortisation }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+  </tr>
+   <tr>
+      <th scope="col">Change in Working Capital</th>
+      {% for i in indicator %}
+         {% if i.ChangeinWorkingCapital %}
+          <td>{{ i.ChangeinWorkingCapital }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+  </tr>
+     <tr>
+      <th scope="col">Cash From Operating Activities</th>
+     {% for i in indicator %}
+         {% if i.CashFromOperatingActivities %}
+          <td>{{ i.CashFromOperatingActivities }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+  </tr>
+   <tr>
+      <th scope="col">Net Change in PP&E and Intangibles</th>
+   {% for i in indicator %}
+         {% if i.NetChangeinPPEIntangibles %}
+          <td>{{ i.NetChangeinPPEIntangibles }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+  </tr>
+    <tr>
+      <th scope="col">Cash From Investing Activities</th>
+       {% for i in indicator %}
+         {% if i.CashFromInvestingActivities %}
+          <td>{{ i.CashFromInvestingActivities }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+  </tr>
+
+             <tr>
+      <th scope="col">Dividends Paid</th>
+             {% for i in indicator %}
+         {% if i.Dividends %}
+          <td>{{ i.Dividends }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+  </tr>
+             <tr>
+      <th scope="col">Cash From Financing Activities</th>
+       {% for i in indicator %}
+         {% if i.CashFromFinancingActivities %}
+          <td>{{ i.CashFromFinancingActivities }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+  </tr>
+             <tr>
+      <th scope="col">Net Change in Cash</th>
+      {% for i in indicator %}
+         {% if i.NetChangeinCash %}
+          <td>{{ i.NetChangeinCash }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+  </tr>
+             <tr>
+      <th >Free Cash Flow</th>
+             {% for i in indicator %}
+         {% if i.FreeCashFlow %}
+          <td>{{ i.FreeCashFlow }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+  </tr>
+</table>
+          </div>
+
+
+
+              <div class="another_div2 col-lg-6">
+                   <table  class="table table-sm">
+
+<tr><span style="color: blue">Valuation Metrics</span></tr>
+
+
+ <tr>
+
+      <th scope="col">EV/EBITDA</th>
+
+ {% for i in indicator %}
+         {% if i.EvEBITDA %}
+          <td>{{ i.EvEBITDA }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+  </tr>
+ <tr>
+
+      <th scope="col">EV/Sales</th>
+ {% for i in indicator %}
+         {% if i.EvSales %}
+          <td>{{ i.EvSales }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+
+  </tr>
+ <tr>
+
+      <th scope="col">Book to Market Value</th>
+ {% for i in indicator %}
+         {% if i.BooktoMarket %}
+          <td>{{ i.BooktoMarket }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+  </tr>
+
+</table>
+          </div>
+              <div class="another_div2 col-lg-6">
+                  <table  class="table table-sm">
+
+
+    <tr><span style="color: blue">Other Ratios</span></tr>
+
+
+
+
+
+
+  <tr>
+
+      <th scope="col">Current Ratio</th>
+  {% for i in indicator %}
+         {% if i.CurrentRatio %}
+          <td>{{ i.CurrentRatio }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+
+  </tr>
+ <tr>
+
+      <th scope="col">Liabilities to Equity Ratio</th>
+{% for i in indicator %}
+         {% if i.LiabilitiestoEquityRatio %}
+          <td>{{ i.LiabilitiestoEquityRatio }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+  </tr>
+ <tr>
+
+      <th scope="col">Debt to Assets Ratio</th>
+{% for i in indicator %}
+         {% if i.DebtToAssetsRatio %}
+          <td>{{ i.DebtToAssetsRatio }}</td>
+           {% else %}
+             <td> N/A</td>
+        {% endif %}
+
+      {% endfor %}
+
+
+  </tr>
+ <tr>
+
+      <th scope="col">Pietroski F-Score</th>
+
+             <td> N/A</td>
+
+  </tr>
+
+</table>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+<script type="text/javascript">
+    Highcharts.chart('container', {
+            chart: {
+                zoomType: 'x'
+            },
+            title: {
+                text: '{{ symbol }}:Close'
+            },
+            subtitle: {
+                text: document.ontouchstart === undefined ?
+                        'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+            },
+            xAxis: {
+                type: 'datetime'
+            },
+            yAxis: {
+                title: {
+                    text: 'Close'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                area: {
+                    fillColor: {
+                        linearGradient: {
+                            x1: 0,
+                            y1: 0,
+                            x2: 0,
+                            y2: 1
+                        },
+                        stops: [
+                            [0, Highcharts.getOptions().colors[0]],
+                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                        ]
+                    },
+                    marker: {
+                        radius: 2
+                    },
+                    lineWidth: 1,
+                    states: {
+                        hover: {
+                            lineWidth: 1
+                        }
+                    },
+                    threshold: null
+                }
+            },
+
+            series: [{
+                type: 'area',
+                name: 'Close',
+                data: [
+                    {% for var in data %}
+                [Date.parse("{{ var.Time}}","y-m-d h-m-s"), parseFloat({{ var.close }}) ], <!-- (TODO) need to check for time parse -->
+                    {% endfor %}
+        ]
+            }]
+        });
+
+
+</script>
+
+{% endblock %}

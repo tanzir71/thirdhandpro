@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block content %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+
+
+<div class="container">
+<h1><span>Stock control : Live and Historical data</span></h1>
+    <br>
+      <div class="row">
+        <div class="option-list-container col-lg-12">
+            <div class="list-item col-lg-12">
+              <ul id="list1">
+                <li><a href="#" id="a1">Summery</a></li>
+                <li><a href="#" id="a2">Statistics</a></li>
+                <li><a href="#" id="a3">SMA</a></li>
+                <li><a href="#" id="a4">EMA</a></li>
+                <li><a href="#" id="a5">MACD</a></li>
+                <li><a href="#" id="a6">STOCH</a></li>
+                <li><a href="#" id="a7">RSI</a></li>
+                <li><a href="#" id="a8">OBV</a></li>
+
+              </ul>
+            </div>
+            <div class="div-for-list1 col-lg-9">
+              <div class="sub-div1 col-lg-6">
+                 <h4><span style="color:#f86624;">{{ symbol }}</span>
+
+          {% for stock in singledata %}
+
+			  <td>{{ stock.open }}</td>
+
+		      {% endfor %}
+                 </h4>
+		<table  class="table table-sm">
+
+		  <tr>
+
+		      <th scope="col">Open</th>
+		       {% for stock in singledata %}
+
+			  <td>{{ stock.open }}</td>
+
+		      {% endfor %}
+
+
+		  </tr>
+		 <tr>
+
+		      <th scope="col">Close</th>
+		       {% for stock in singledata %}
+
+			  <td>{{ stock.close }}</td>
+
+		      {% endfor %}
+
+
+		  </tr>
+		 <tr>
+
+		      <th scope="col">Low</th>
+		       {% for stock in singledata %}
+
+			  <td>{{ stock.low }}</td>
+
+		      {% endfor %}
+
+
+		  </tr>
+		 <tr>
+
+		      <th scope="col">High</th>
+		       {% for stock in singledata %}
+
+			  <td>{{ stock.high }}</td>
+
+		      {% endfor %}
+
+
+		  </tr>
+		 <tr>
+
+		      <th scope="col">Volume</th>
+		       {% for stock in singledata %}
+
+			  <td>{{ stock.volume }}</td>
+
+		      {% endfor %}
+
+
+		  </tr>
+		</table>
+              </div>
+                <div class=" sub-div2 col-lg-6"><div id="container" style="min-width: 210px; height: 300px; margin: 0 auto"></div></div>
+            </div>
+            <div class="div-for-list2 col-lg-9" style="display: none">
+                    {% include 'simfin.html' %}
+            </div>
+
+            <div class="div-for-list3 col-lg-9" >
+                  <h2>Simple Moving Average (SMA)</h2>
+                  <h4 style="border: 2px solid yellowgreen;border-radius: 5px; padding: 5px">A simple moving average (SMA) is an arithmetic moving average calculated by adding the closing price of the security for a number of time periods and then dividing this total by the number of time periods.
+</h4><br>
+                    <div><h3> Company : {% for j in company %}{{ j.companyName }}{% endfor %}</h3>
+
+                    <h2>closing value : {% for i in datasma %}{{ i.close }}{% endfor %}</h2></div>
+            </div>
+              <div class="div-for-list4 col-lg-9" >
+              <h2>Exponential Moving Average (EMA)</h2>
+              <h4 style="border: 2px solid yellowgreen;border-radius: 5px; padding: 5px">A type of moving average that is similar to a simple moving average, except that more weight is given to the latest data. The exponential moving average is also known as "exponentially weighted moving average".
+</h4>
+                <div><h3>Company : {% for j in company %}{{ j.companyName }}{% endfor %}</h3>
+
+
+                   <h2>closing value : {% for i in dataema %}{{ i.close }}{% endfor %}</h2>
+                    </div>
+            </div>
+
+
+          <div class="div-for-list5 col-lg-9" >
+              <h2>MACD</h2>
+              <h4 style="border: 2px solid yellowgreen;border-radius: 5px; padding: 5px">Moving average convergence divergence (MACD) is a trend-following momentum indicator that shows the relationship between two moving averages of prices. The MACD is calculated by subtracting the 26-day exponential moving average (EMA) from the 12-day EMA.</h4>
+                <div><h3> Company : {% for j in company %}{{ j.companyName }}{% endfor %}</h3>
+                <h2>closing value : {% for i in datamacd %}{{ i.close }}{% endfor %}</h2>
+
+                </div>
+            </div>
+          <div class="div-for-list6 col-lg-9" >
+              <h2>STOCH</h2>
+             <h4 style="border: 2px solid yellowgreen;border-radius: 5px; padding: 5px">The stochastic oscillator is a momentum indicator comparing the closing price of a security to the range of its prices over a certain period of time. The sensitivity of the oscillator to market movements is reducible by adjusting that time period or by taking a moving average of the result.</h4>
+                <div><h3> Company : {% for j in company %}{{ j.companyName }}{% endfor %}</h3>
+                    <h2>  SlowD value       {% for i in datastoch %}{{ i.SlowD }}{% endfor %}</h2>
+            </div>
+          </div>
+          <div class="div-for-list7 col-lg-9" >
+              <h2>RSI</h2>
+               <h4 style="border: 2px solid yellowgreen;border-radius: 5px; padding: 5px"> The relative strength index (RSI) is a technical indicator used in the analysis of financial markets. It is intended to chart the current and historical strength or weakness of a stock or market based on the closing prices of a recent trading period. The indicator should not be confused with relative strength</h4>
+                <div><h3> Company : {% for j in company %}{{ j.companyName }}{% endfor %}</h3>
+                <h2> RSI value :{% for i in datarsi %}{{ i.RSI }}{% endfor %}</h2>
+
+                </div>
+            </div>
+          <div class="div-for-list8 col-lg-9" >
+              <h2>OBV</h2>
+                <h4 style="border: 2px solid yellowgreen;border-radius: 5px; padding: 5px">On-balance volume (OBV) is a momentum indicator that uses volume flow to predict changes in stock price.</h4>
+                <div><h3> Company : {% for j in company %}{{ j.companyName }}{% endfor %}</h3>
+                    <h2>OBV value :{% for i in dataobv %}{{ i.OBV }}{% endfor %}</h2>
+                   </div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+<script type="text/javascript">
+    Highcharts.chart('container', {
+            chart: {
+                zoomType: 'x'
+            },
+            title: {
+                text: '{{ symbol }}:Close'
+            },
+            subtitle: {
+                text: document.ontouchstart === undefined ?
+                        'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+            },
+            xAxis: {
+                type: 'datetime'
+            },
+            yAxis: {
+                title: {
+                    text: 'Close'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                area: {
+                    fillColor: {
+                        linearGradient: {
+                            x1: 0,
+                            y1: 0,
+                            x2: 0,
+                            y2: 1
+                        },
+                        stops: [
+                            [0, Highcharts.getOptions().colors[0]],
+                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                        ]
+                    },
+                    marker: {
+                        radius: 2
+                    },
+                    lineWidth: 1,
+                    states: {
+                        hover: {
+                            lineWidth: 1
+                        }
+                    },
+                    threshold: null
+                }
+            },
+
+            series: [{
+                type: 'area',
+                name: 'Close',
+                data: [
+                    {% for var in data %}
+                [Date.parse("{{ var.Time}}","y-m-d h-m-s"), parseFloat({{ var.close }}) ], <!-- (TODO) need to check for time parse -->
+                    {% endfor %}
+        ]
+            }]
+        });
+
+
+</script>
+
+    <script type="text/javascript" src="{% static 'js/indexscript.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/table.js' %}"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+
+    <script type="text/javascript">
+    $('#search-select')
+      .dropdown()
+    ;
+    $('#search-select1')
+      .dropdown()
+    ;
+    </script>
+
+{% endblock %}
+
+
